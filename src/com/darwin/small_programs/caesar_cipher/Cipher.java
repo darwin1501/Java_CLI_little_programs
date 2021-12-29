@@ -134,7 +134,7 @@ public class Cipher {
 //          subtract by one again to get the exact index of the letter from the start of the alphabet
 //            e.g
 //                      Y will become B
-//              letterIndex(27) - alphabet indexes(25) = 2 is B
+//              letterIndex(27) - alphabet indexes(25)  - 1 = 1 is B at pattern array
             int remaining = letterIndex - (pattern.length - 1) -1;
             shiftedLetter  = Arrays.asList(pattern).get(remaining);
         }
@@ -147,19 +147,16 @@ public class Cipher {
 
     public char removeShiftToLetters(int indexOfLetter, boolean isUpperCase){
         char shiftedLetter = 0;
-//        subtract 3 to the letter
-//        e.g A + 3 = D
+//        subtract 3 to the index of letter to find the encrypted index of letter
+//        e.g A - 3 = Y
         int letterIndex = indexOfLetter - shift;
 
         try{
             shiftedLetter = Arrays.asList(pattern).get(letterIndex);
 //       if the index exceed the alphabet length/letters
         }catch (Exception e){
-//        then start
-//        at the beginning of the alphabet.
-//        e.g A - 3 = Y
-
-//              letterIndex(27) - alphabet indexes(25) = 2 is B
+//            the possible indexes are below zero
+//          this formula will get objects/letters at the end or near at the of the pattern array
             int remaining = (letterIndex - (pattern.length - 1) -1) - pattern.length;
             shiftedLetter  = Arrays.asList(pattern).get(remaining);
         }
