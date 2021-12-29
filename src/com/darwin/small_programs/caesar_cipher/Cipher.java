@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
+
 public class Cipher {
 
     private File file;
 
-    private Character[] pattern = {
+    private final Character[] pattern = {
             'a','b','c','d','e',
             'f','g','h','i','j',
             'k','l','m','n','o',
@@ -21,9 +23,15 @@ public class Cipher {
 
     private int shift = 3;
 
+    public enum Command {
+        ENCRYPT,
+        DECRYPT
+    }
+
     public ArrayList<String> getFileToEncrypt(){
         file = new File("src/com/darwin/small_programs/caesar_cipher/text_files/encrypt_this.txt");
         ArrayList<String> textList = new ArrayList<>();
+
         try{
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()){
@@ -36,10 +44,26 @@ public class Cipher {
         return textList;
     }
 
-    public void encrypt(ArrayList<String> textList){
+    public ArrayList<String> getFileToDecrypt(){
+        file = new File("src/com/darwin/small_programs/caesar_cipher/text_files/decrypt_this.txt");
+        ArrayList<String> textList = new ArrayList<>();
+
+        try{
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()){
+                textList.add(sc.nextLine());
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
+        return textList;
+    }
+
+    public void cypher(ArrayList<String> textList, Command command){
 
         ArrayList<ArrayList<Character>> charList = new ArrayList<>();
-        ArrayList<ArrayList<Character>> encryptedCharList = new ArrayList<>();
+        ArrayList<ArrayList<Character>> processedCharList = new ArrayList<>();
 
 //        create 2D array list of characters
         for (int i = 0; i < textList.size() ; i++) {
@@ -49,19 +73,15 @@ public class Cipher {
             }
             charList.add(characters);
         }
-//    print character list
-        System.out.println(charList);
-
         // get each character in 2d array list
         for (int i = 0; i < charList.size() ; i++) {
-            ArrayList<Character> encryptedChar = new ArrayList<>();
+            ArrayList<Character> charToprocess = new ArrayList<>();
             for (int j = 0; j <charList.get(i).size(); j++) {
                 char character = charList.get(i).get(j);
                 int getIndex;
                 boolean isUpperCase = Character.isUpperCase(character);
         // find character in the pattern array
                 getIndex = Arrays.asList(pattern).indexOf(character);
-
         // if the program can't find the character in the pattern array,
         // because the letter is in lower case
                 if (getIndex == -1){
@@ -70,23 +90,30 @@ public class Cipher {
         //  if the program can't find the character
                     if (getIndex == -1){
         // the character is not a letter
-                        System.out.println("Not a letter");
         // store the characters in array list
-                        encryptedChar.add(character);
+                        charToprocess.add(character);
                     }else{
         // store the characters in array list
-                        encryptedChar.add(addShiftToLetters(getIndex, isUpperCase));
+                        if(command == Command.ENCRYPT){
+                            charToprocess.add(addShiftToLetters(getIndex, isUpperCase));
+                        }else{
+                            charToprocess.add(removeShiftToLetters(getIndex, isUpperCase));
+                        }
                     }
                 }else{
         // store the characters in array list
-                        encryptedChar.add(addShiftToLetters(getIndex, isUpperCase));
+                    if(command == Command.ENCRYPT){
+                        charToprocess.add(addShiftToLetters(getIndex, isUpperCase));
+                    }else{
+                        charToprocess.add(removeShiftToLetters(getIndex, isUpperCase));
+                    }
                 }
             }
         // store the character array list into array list
-            encryptedCharList.add(encryptedChar);
+            processedCharList.add(charToprocess);
         }
 //        print the result
-        System.out.println(encryptedCharList);
+        System.out.println(processedCharList);
     }
 //    replace the old letter to caesar letter alphabet by adding 3 to each letter
     public char addShiftToLetters(int indexOfLetter, boolean isUpperCase){
@@ -111,7 +138,31 @@ public class Cipher {
             int remaining = letterIndex - (pattern.length - 1) -1;
             shiftedLetter  = Arrays.asList(pattern).get(remaining);
         }
+        if(isUpperCase){
+            return Character.toUpperCase(shiftedLetter);
+        }else{
+            return shiftedLetter;
+        }
+    }
 
+    public char removeShiftToLetters(int indexOfLetter, boolean isUpperCase){
+        char shiftedLetter = 0;
+//        subtract 3 to the letter
+//        e.g A + 3 = D
+        int letterIndex = indexOfLetter - shift;
+
+        try{
+            shiftedLetter = Arrays.asList(pattern).get(letterIndex);
+//       if the index exceed the alphabet length/letters
+        }catch (Exception e){
+//        then start
+//        at the beginning of the alphabet.
+//        e.g A - 3 = Y
+
+//              letterIndex(27) - alphabet indexes(25) = 2 is B
+            int remaining = (letterIndex - (pattern.length - 1) -1) - pattern.length;
+            shiftedLetter  = Arrays.asList(pattern).get(remaining);
+        }
         if(isUpperCase){
             return Character.toUpperCase(shiftedLetter);
         }else{
