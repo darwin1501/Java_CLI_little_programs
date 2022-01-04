@@ -1,16 +1,12 @@
 package com.darwin;
 
-import com.darwin.small_programs.caesar_cipher.Cipher;
-import com.darwin.small_programs.string_methods.ProjectRegex;
-import com.darwin.small_programs.string_methods.WorkingWithChars;
-import com.darwin.small_programs.working_with_files.FileOperations;
+import com.darwin.small_programs.isbn_verifier.ISBNVerifier;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        ProjectRegex regex = new ProjectRegex();
-        regex.FindACharacter();
-
+        ISBNVerifier isbnVerifier = new ISBNVerifier();
+        isbnVerifier.verifyISBN();
     }
 }
