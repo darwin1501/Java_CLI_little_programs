@@ -42,8 +42,13 @@ public class ISBNVerifier {
 //        check if isbn is valid
         for(String isbn:isbnSanitized){
             if(isbn.length() == 10 || isbn.length() == 13){
-                System.out.println(isbn+" is valid");
-                System.out.println("length: " + isbn.length());
+                if(isbn.charAt(0) == '4' && isbn.charAt(1) == '7' && isbn.charAt(2) == '8' || isbn.charAt(2) == '9'){
+                    System.out.println(isbn+" is valid");
+                    System.out.println("length: " + isbn.length());
+                }else{
+                    System.out.println(isbn+" is invalid");
+                    System.out.println("length: " + isbn.length());
+                }
             }else{
                 System.out.println(isbn+" is invalid");
                 System.out.println("length: " + isbn.length());
