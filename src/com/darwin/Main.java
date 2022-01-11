@@ -1,12 +1,13 @@
 package com.darwin;
 
-import com.darwin.small_programs.palindrome_checker.Palindrome;
+import com.darwin.small_programs.working_with_binary.BinaryPrograms;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Palindrome palindrome = new Palindrome();
-        palindrome.verify();
+        BinaryPrograms binaryPrograms = new BinaryPrograms();
+        binaryPrograms.octalToHex();
+
     }
 }
