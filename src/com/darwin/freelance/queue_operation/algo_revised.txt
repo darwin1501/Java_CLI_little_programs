@@ -1,0 +1,153 @@
+1.) Display Queue
+2.) Insert
+3.) Delete
+4.) Size of the Queue
+5.) Peek
+6.) Sort Name via Ascending
+7.) Sort Name via Descending
+8.) Sort Age via Ascending
+9.) Sort Age via Descending
+10.) Check Queue
+11.) Show Deleted Data
+0.) Exit Program
+
+Algorithm for Displaying in the content of the list
+Input: 1
+Output: Shows all the content of the list.
+Steps:
+
+1. Start
+2. Input 1.
+3. If queue was empty, display "Queue is Empty" else, display all items in queue.
+4. Stop.
+
+Algorithm for Inserting data in the list.
+Input: 2
+Output: Requires the user to define the size of queue and insert data.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 2.
+4. Enter queue size.
+5. Display the maximum data to be inserted.
+6. Enter Surname.
+7. Enter Firstname.
+8. Enter Middle Initial.
+9. Enter age.
+10. Display the remaining data to be inserted in queue.
+11. Display queue size.
+12. If the maximum queue size has been reach, Go to step 3 else, Go back to Menu.
+13. Stop.
+
+Algorithm for deleting data in list.
+Input: 3
+Output: Define the size of the queue to be deleted.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 3.
+4. Enter Size to be Deleted.
+5. If queue was empty, display "Queue is Empty", else delete all data based on the entered size.
+6. store the deleted data to the Array list deletedData.
+7. Stop.
+
+Algorithm for checking the size of the queue.
+Input: 4
+Output: Display the size of the queue.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 4.
+4. If queue was empty, display "Queue is Empty" else, display queue size.
+5. Stop
+
+Algorithm for displaying the head of the queue using Peek
+Input: 5
+Output: displays the first item in the queue.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 5.
+4. If queue was empty, display "Queue is Empty" else, display the first data in queue
+5. Stop.
+
+Algorithm for sorting the name in ascending order.
+Input: 6
+Output: Shows the data sorted in name in ascending order.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 6
+4. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+5  Sort the name in the list in ascending order.
+6. Display the sorted data.
+7. Stop.
+
+Algorithm for sorting the name in descending order.
+Input: 7
+Output: Shows the data sorted in name in descending order.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 7
+4. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+5  Sort the name in the list in descending order.
+6. Display the sorted data.
+7. Stop.
+
+Algorithm for sorting the age in ascending order.
+Input: 8
+Output: Shows the data sorted in age in ascending order.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 8
+4. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+5  Sort the age in the list in ascending order.
+6. Display the sorted data.
+7. Stop.
+
+Algorithm for sorting the age in descending order.
+Input: 9
+Output: Shows the data sorted in age in descending order.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 9
+4. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+5  Sort the age in the list in descending order.
+6. Display the sorted data.
+7. Stop.
+
+Algorithm for checking if queue is empty.
+Input: 10
+Output: Display the current status of the queue telling if It's empty or not.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 10
+4. If queue is empty display "Queue is Empty", else display "Queue is not Empty" and display the size of the queue.
+5. Stop.
+
+Algorithm for checking deleted items in queue
+Input: 11
+Output: Display all the deleted items in the queue.
+Steps:
+
+1. Start.
+2. Display Menu.
+3. Input 11
+4. If deleted items in queue was empty display "Queue has no deleted data yet." else display deleted data.
+5. Stop.
+
+
+
