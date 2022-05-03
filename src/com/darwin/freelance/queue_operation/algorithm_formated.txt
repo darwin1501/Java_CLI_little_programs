@@ -1,0 +1,77 @@
+Step 1. Start.
+Step 2. Display Operation.
+Step 3. Select an Operation.
+Step 4. If 1 was selected go to Step 17.
+Step 5. If 2 was selected go to Step 19.
+Step 6. If 3 was selected go to Step 28.
+Step 7. If 4 was selected go to Step 32.
+Step 8. If 5 was selected go to Step 34.
+Step 9. If 6 was selected go to Step 36.
+Step 10. If 7 was selected go to Step 40.
+Step 11. If 8 was selected go to Step 44.
+Step 12. If 9 was selected go to Step 48.
+Step 13. If 10 was selected go to Step 52.
+Step 14. If 11 was selected go to Step 54.
+Step 15. If 0 was selected Exit the program
+Step 16. If the command was invalid go to step 2.
+
+// [1] Display Queue
+Step 17. If queue was empty, display "Queue is Empty" else, display all items in queue
+Step 18. Go to step 2.
+
+// [2] Insert
+Step 19. Enter queue size
+Step 20. Display the maximum data to be inserted
+Step 21. Enter Surname
+Step 22. Enter Firstname
+Step 23. Enter Middle Initial
+Step 24. Enter age
+Step 25. Display the remaining data to be inserted in queue
+Step 26. Display queue size
+Step 27. If the maximum queue size has been reach, Go to step 2 else, Go to step n
+
+//[3] Delete
+Step 28. Enter Size to be Deleted.
+Step 29. delete all data based on the entered size.
+Step 30. store the deleted data to the Array list deletedData.
+Step 31. Goto to step 2.
+
+//[4] Size of the Queue
+Step 32. If queue was empty, display "Queue is Empty" else, display queue size
+Step 33. Go to step 2.
+
+//[5] Peek
+Step 34. If queue was empty, display "Queue is Empty" else, display the first data in queue
+Step 35. Go to step 2.
+
+//[6] Sorts name in ascending order
+Step 36. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Step 37. Sort the name in the list in ascending order.
+Step 38. Display the sorted data.
+Step 39. Go to step 2.
+
+//[7] Sorts name in descending order
+Step 40. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Step 41. Sort the name in the list in descending order.
+Step 42. Display the sorted data.
+Step 43. Go to step 2.
+
+//[8] Sorts age in ascending order
+Step 44. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Step 45. Sort the age in the list in ascending order.
+Step 46. Display the sorted data.
+Step 47. Go to step 2.
+
+//[9] Sorts age in descending order
+Step 48. If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Step 49. Sort the age in the list in descending order.
+Step 50. Display the sorted data.
+Step 51. Go to step 2.
+
+//[10] check if queue is empty.
+Step 52. If queue is empty display "Queue is Empty" else display "Queue is not Empty" and display the size of the queue.
+Step 53. Go to step 2.
+
+//[11] check deleted items in queue
+Step 54. If deleted items in queue was empty display "Queue has no deleted data yet." else display deleted data.
+Step 55. Go to step 2.

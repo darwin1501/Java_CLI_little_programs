@@ -10,18 +10,15 @@ package com.darwin.freelance.queue_operation;/*
  *         5. Status of the list. 
  *         6. Sorted elements of the list with respect to name or age. 
  */
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.List;
-import java.util.Queue;
-import java.util.Collections;
-import java.util.Comparator;
+
+import java.util.*;
 
 public class AppList {
     int Age;        // Initializing age variable
     String Lastname;   // Initializing string for last name
     String Firstname;   // Initializing string for first name
     String Middlename;   // Initializing string for middle name
+    public static ArrayList<AppList> deletedData = new ArrayList<>();
     public String getLastname(){
         return Lastname;
     }
@@ -70,6 +67,7 @@ public class AppList {
             System.out.println("8.) Sort Age via Ascending");
             System.out.println("9.) Sort Age via Descending");
             System.out.println("10.) Check Queue");
+            System.out.println("11.) Show Deleted Data");
             System.out.println("0.) Exit Program");
             System.out.println("  ");
             System.out.print("Select an Operation ");
@@ -107,38 +105,89 @@ public class AppList {
                 case "10":
                     isEmptyQ(data);
                     break;
-                   
-                   
+                case "11":
+                    displayDeletedData();
+                    break;
                 case "0":
-                    break loop;    
+                    break loop;
+                default:
+                    System.out.println("-------------------------------------------------------");
+                    System.out.println("You entered an invalid command operation try again.");
+                    System.out.println("-------------------------------------------------------");
             }
             System.out.println();
         }
     }
+
+    public static void addDeletedData(AppList data){
+        deletedData.add(data);
+    }
+
+    public static void displayDeletedData(){
+        int numOfList = 0;
+        if (deletedData.isEmpty()){
+            System.out.println("Queue has no deleted data yet. ");
+        }else{
+            System.out.println("------------------------------");
+            System.out.println("Deleted data in the Queue");
+            System.out.println("------------------------------");
+            for (AppList deletedDatum : deletedData) {
+                numOfList += 1;
+                System.out.println(numOfList+". "+deletedDatum);
+            }
+            System.out.println("------------------------------");
+        }
+    }
     
     public static void DisplayQ(Queue<AppList> data) { //Display the queue
+        int numberOfQueue = 0;
         if(data.isEmpty()){
             isEmptyQ(data);
         } else {
+            System.out.println("------------------------------");
+            System.out.println("Items in Queue");
+            System.out.println("------------------------------");
             for (AppList peeps:data){
-                System.out.println(peeps);
+                numberOfQueue += 1;
+                System.out.println(numberOfQueue+". "+peeps);
             }
         }
+        System.out.println("------------------------------");
     }
     
     public static void NQ(Queue<AppList> data) {// Enqueue. Adds people's names and ages
         Scanner scan= new Scanner(System.in);
+        String surName;
+        String firstName;
+        String middleInital;
+        int age;
         System.out.print("Enter New Queue Size: ");
         int num=Integer.parseInt(scan.nextLine());
+        int dataRemaining = num;
         if (num == 0){
             isEmptyQ(data);
         } else {
-            System.out.println("Enter "+num+" Data");
+            System.out.println("------------------------------");
+            System.out.println("Maximum Data to be inserted: "+num);
+            System.out.println("------------------------------");
+            System.out.println();
             for (int i = 0; i < num; i++) {
-                System.out.println("Please Enter Surname, First Names , Middle Initial & Age:");
-                data.add(new AppList(scan.next(),scan.next(),scan.next(),Integer.parseInt(scan.next())));
+                dataRemaining -= 1;
+                System.out.print("Enter Surname: ");
+                surName = scan.next();
+                System.out.print("Enter Firstname: ");
+                firstName = scan.next();
+                System.out.print("Enter Middle Initial: ");
+                middleInital = scan.next();
+                System.out.print("Enter age: ");
+                age = Integer.parseInt(scan.next());
+                System.out.println("------- "+dataRemaining +" data remaining to be inserted."+" -------");
+                data.add(new AppList(surName, firstName, middleInital, age));
+                System.out.println("------------------------------");
             }
-            System.out.println("Current Queue:"+data.size());
+            System.out.println("------------------------------");
+            System.out.println("Current Items in Queue:"+data.size());
+            System.out.println("------------------------------");
         }
     }
     
@@ -150,7 +199,9 @@ public class AppList {
             System.out.print("Enter Size to be Deleted: ");
             int rmv= Integer.parseInt(scan.nextLine());
             for (int i = 0; i < rmv; i++) {
-                data.poll();
+//                data.poll();
+                // add deleted items in deleted list
+                addDeletedData(data.poll());
             }
         }
     }
@@ -251,7 +302,16 @@ public class AppList {
     }
     
     public static void isEmptyQ(Queue<AppList> data) {//Determines if queue isEmpty is true or false
-        System.out.println("Queue is Empty: " + data.isEmpty());
+//        System.out.println("Queue is Empty: " + data.isEmpty());
+        if(data.isEmpty()){
+            System.out.println("------------------------------");
+            System.out.println("Queue is Empty");
+            System.out.println("------------------------------");
+        }else{
+            System.out.println("------------------------------");
+            System.out.println("Queue is not Empty and it's length was " + data.size());
+            System.out.println("------------------------------");
+        }
     }
 }
 

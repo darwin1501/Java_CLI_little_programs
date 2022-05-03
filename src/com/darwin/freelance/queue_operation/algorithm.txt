@@ -1,0 +1,80 @@
+Algorithm
+
+
+Start.
+Display Operation.
+Select an Operation.
+If 1 was selected go to n.
+If 2 was selected go to n.
+If 3 was selected go to n.
+If 4 was selected go to n.
+If 5 was selected go to n.
+If 6 was selected go to n.
+If 7 was selected go to n.
+If 8 was selected go to n.
+If 9 was selected go to n.
+If 10 was selected go to n.
+If 11 was selected go to n.
+If 0 was selected Exit the program
+If the command was invalid go to step 2.
+
+// Display Queue
+If queue was empty, display "Queue is Empty" else, display all items in queue
+Go to step 2.
+
+// Insert
+Enter queue size
+Display the maximum data to be inserted
+Enter Surname
+Enter Firstname
+Enter Middle Initial
+Enter age
+Display the remaining data to be inserted in queue
+Display queue size
+If the maximum queue size has been reach, Go to step 2 else, Go to step n
+
+//Delete
+Enter Size to be Deleted.
+delete all data based on the entered size.
+store the deleted data to the Array list deletedData.
+Goto to step 2.
+
+//Size of the Queue
+If queue was empty, display "Queue is Empty" else, display queue size
+Go to step 2.
+
+//Peek
+If queue was empty, display "Queue is Empty" else, display the first data in queue
+Go to step 2.
+
+//Sorts name in ascending order
+If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Sort the name in the list in ascending order.
+Display the sorted data.
+Go to step 2.
+
+//Sorts name in descending order
+If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Sort the name in the list in descending order.
+Display the sorted data.
+Go to step 2.
+
+//Sorts age in ascending order
+If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Sort the age in the list in ascending order.
+Display the sorted data.
+Go to step 2.
+
+//Sorts age in descending order
+If queue was empty, display "Queue is Empty" else, Convert the queue into list.
+Sort the age in the list in descending order.
+Display the sorted data.
+Go to step 2.
+
+// check if queue is empty.
+If queue is empty display "Queue is Empty" else display "Queue is not Empty" and display the size of the queue.
+Go to step 2.
+
+// check deleted items in queue
+If deleted items in queue was empty display "Queue has no deleted data yet." else display deleted data.
+Go to step 2.
